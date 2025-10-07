@@ -42,7 +42,7 @@ module fifo_behav
     bram_simple_dp_behav #(
         .N     ( $clog2(N) ),
         .B     ( B         )
-    ) (
+    ) bram (
         .clk   ( clk       ),
         .ena   ( 1'b1      ),
         .enb   ( rd_en     ),
