@@ -54,7 +54,7 @@ module fifo_behav
     );
 
     // Memory connections.
-    assign mem_wea = (full_i == 1'b1) ? wr_en : 1'b0;
+    assign mem_wea = (full_i == 1'b0) ? wr_en : 1'b0;
 
     // Full/empty signals.
     assign full_i  = (wptr == rptr-1) ? 1'b1 : 1'b0;
