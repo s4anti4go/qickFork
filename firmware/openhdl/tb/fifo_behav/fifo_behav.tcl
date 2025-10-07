@@ -30,17 +30,13 @@ puts "Running simulation with N = $N and B = $B"
 # ==============================================================================
 
 # List VHDL source files with their relative paths
-xvhdl -work xil_defaultlib { \
-    ../../../ip/axis_signal_gen_v5/src/fifo/bram_simple_dp.vhd \
-    ../../../ip/axis_signal_gen_v5/src/fifo/fifo.vhd \
-}
+xvhdl -work xil_defaultlib ../../../ip/axis_signal_gen_v5/src/fifo/bram_simple_dp.vhd 
+xvhdl -work xil_defaultlib ../../../ip/axis_signal_gen_v5/src/fifo/fifo.vhd 
 
 # List SystemVerilog source files with their relative paths
-xvlog -sv -work xil_defaultlib { \
-    ../../fifo_behav.sv \
-    ../../bram_simple_dp_behav.sv \
-    ../../../hdl/fifo_xpm.sv \
-}
+xvlog -sv -work xil_defaultlib ../../fifo_behav.sv \
+xvlog -sv -work xil_defaultlib ../../bram_simple_dp_behav.sv \
+xvlog -sv -work xil_defaultlib ../../../hdl/fifo_xpm.sv \
 
 # Add the testbench file. The path is relative to the script's location.
 xvlog -sv -work xil_defaultlib "./${TOP_LEVEL_TB}.sv"
