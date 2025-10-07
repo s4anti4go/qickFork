@@ -7,7 +7,7 @@
 module tb_fifo_behav;
 
     // add arbitary number of parameter configurations
-    localparam int numIter = 2
+    localparam int numIter = 2;
     localparam int B [numIter] = '{160, 277};
     localparam int N [numIter] = '{16,  87};
 
