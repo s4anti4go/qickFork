@@ -30,16 +30,16 @@ puts "Running simulation with N = $N and B = $B"
 # ==============================================================================
 
 # List VHDL source files with their relative paths
-xvhdl -work xil_defaultlib ../../../ip/axis_signal_gen_v5/src/fifo/bram_simple_dp.vhd 
-xvhdl -work xil_defaultlib ../../../ip/axis_signal_gen_v5/src/fifo/fifo.vhd 
+exec xvhdl -work xil_defaultlib ../../../ip/axis_signal_gen_v5/src/fifo/bram_simple_dp.vhd 
+exec xvhdl -work xil_defaultlib ../../../ip/axis_signal_gen_v5/src/fifo/fifo.vhd 
 
 # List SystemVerilog source files with their relative paths
-xvlog -sv -work xil_defaultlib ../../fifo_behav.sv \
-xvlog -sv -work xil_defaultlib ../../bram_simple_dp_behav.sv \
-xvlog -sv -work xil_defaultlib ../../../hdl/fifo_xpm.sv \
+exec xvlog -sv -work xil_defaultlib ../../fifo_behav.sv
+exec xvlog -sv -work xil_defaultlib ../../bram_simple_dp_behav.sv
+exec xvlog -sv -work xil_defaultlib ../../../hdl/fifo_xpm.sv
 
 # Add the testbench file. The path is relative to the script's location.
-xvlog -sv -work xil_defaultlib "./${TOP_LEVEL_TB}.sv"
+exec xvlog -sv -work xil_defaultlib "./${TOP_LEVEL_TB}.sv"
 
 # Auto-detect and enable XPMs for simulation.
 auto_detect_xpm
