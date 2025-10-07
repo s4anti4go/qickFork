@@ -4,14 +4,12 @@
 // and an optional random value provided via paramters from the simulator script
 
 
-module tb_fifo_behav # (
-    parameter int randB = 0,
-    parameter int randN = 0
-);
+module tb_fifo_behav;
 
-    localparam int numIter = (randB != 0 && randN != 0) ? 2 : 1;
-    localparam int B [numIter] = '{160, randB};
-    localparam int N [numIter] = '{16,  randN};
+    // add arbitary number of parameter configurations
+    localparam int numIter = 2
+    localparam int B [numIter] = '{160, 277};
+    localparam int N [numIter] = '{16,  87};
 
     logic rstn;
     logic clk;
