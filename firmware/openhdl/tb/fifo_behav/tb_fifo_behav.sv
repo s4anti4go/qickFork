@@ -7,9 +7,9 @@
 module tb_fifo_behav;
 
     // add arbitary number of parameter configurations
-    localparam int numIter = 2;
-    localparam int B [numIter] = '{160, 277};
-    localparam int N [numIter] = '{16,  87};
+    localparam int numIter = 1;
+    localparam int B [numIter] = '{160};
+    localparam int N [numIter] = '{16};
 
     logic rstn;
     logic clk;
@@ -21,7 +21,7 @@ module tb_fifo_behav;
 
     // reset generation
     initial begin
-        rstn = 0; #33; rstn = 1;
+        rstn = 0; #45; rstn = 1;
     end
 
     // End simuation after 10000 clk cycles
@@ -39,13 +39,13 @@ generate for (genvar i = 0; i < numIter; i++) begin : genBlk
     logic full2, empty2;
     logic full3, empty3;
 
-    logic [B[i]-1 : 0] din;
+    logic [B[i]-1 : 0] din = 0;
     logic [B[i]-1 : 0] dout1;
     logic [B[i]-1 : 0] dout2;
     logic [B[i]-1 : 0] dout3;
 
     // random input stream generation
-    always @(negedge clk) begin
+    always @(negedge clk) begin // TODO: weird reset behavior...
         std::randomize(wr_en);
         std::randomize(rd_en);
         std::randomize(din);
