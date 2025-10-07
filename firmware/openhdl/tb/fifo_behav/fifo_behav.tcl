@@ -37,12 +37,13 @@ xvhdl -work xil_defaultlib { \
 
 # List SystemVerilog source files with their relative paths
 xvlog -sv -work xil_defaultlib { \
-    ../src/my_sv_file.sv \
-    ../misc/other_file.sv \
+    ../../fifo_behav.sv \
+    ../../bram_simple_dp_behav.sv \
+    ../../../hdl/fifo_xpm.sv \
 }
 
 # Add the testbench file. The path is relative to the script's location.
-xvlog -sv -work xil_defaultlib "../test/${TOP_LEVEL_TB}.sv"
+xvlog -sv -work xil_defaultlib "./${TOP_LEVEL_TB}.sv"
 
 # Auto-detect and enable XPMs for simulation.
 auto_detect_xpm
