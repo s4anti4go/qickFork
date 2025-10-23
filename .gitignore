@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Created by .ignore support plugin (hsz.mobi)
 ### JupyterNotebooks template
 # gitignore template for Jupyter Notebooks
@@ -71,3 +72,14 @@ Temporary Items
 
 !/.gitignore
 !/README.md
+=======
+.venv/
+__pycache__/
+*.pyc
+sim_build/
+obj_dir/
+build_tb/
+*.fst
+*.vcd
+top_dac*.csv
+>>>>>>> 9de73d0 (Initial commit)

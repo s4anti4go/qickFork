@@ -1,0 +1,6 @@
+<testsuites name="results">
+  <testsuite name="all" package="all">
+    <property name="random_seed" value="1761206574" />
+    <testcase name="drive_dut_from_python" classname="test_dac_python" file="/Users/sbf/Desktop/to_verilate/test_dac_python.py" lineno="15" time="0.05204296112060547" sim_time_ns="3743.25" ratio_time="71926.15330486889" />
+  </testsuite>
+</testsuites>
