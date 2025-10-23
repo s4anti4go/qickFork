@@ -6,7 +6,7 @@ TOPLEVEL = dac_top                   # compile the DUT only
 COCOTB_TEST_MODULES = test_dac_python  # Python test module (no .py extension)
 
 # Your RTL (adjust paths if needed)
-VERILOG_SOURCES = $(PWD)/dac_top.sv $(PWD)/dac.sv
+VERILOG_SOURCES = $(PWD)/../dac_top.sv $(PWD)/../dac.sv
 
 # Verilator flags
 VERILATOR_FLAGS += -sv --timing --trace-fst -Wall -O3 --timescale 1ps/1ps

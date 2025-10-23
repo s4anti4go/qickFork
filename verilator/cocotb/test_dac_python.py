@@ -28,11 +28,10 @@ async def drive_dut_from_python(dut):
     dut.s_axis_tdata.value  = 0
     dut.s_axis_tvalid.value = 0
 
-    # Wait ~20 ns like your `#20000` preamble (with our 2325 ps period, 9 cycles ≈ 20.9 ns)
     for _ in range(9):
         await RisingEdge(dut.clk)
 
-    # Hold tvalid high for the whole sweep (matches your SV TB)
+    # Hold tvalid high for the whole sweep 
     dut.s_axis_tvalid.value = 1
 
     # CSV log (same header)
@@ -55,10 +54,10 @@ async def drive_dut_from_python(dut):
                 word = (single_tc << (j * DAC_BITS)) & ((1 << width) - 1)
                 dut.s_axis_tdata.value = word
 
-                # One full period per sample (your SV had `#2325` → one clk period)
+                # One full period per sample 
                 await RisingEdge(dut.clk)
 
-                # Expected output (same formula as your TB)
+                # Expected output 
                 exp = VREF * twos_to_signed(single_tc, DAC_BITS) / (1 << (DAC_BITS - 1))
 
                 # Try to read dac_out[j]; if Verilator/VPI hides reals, fall back to 0.0

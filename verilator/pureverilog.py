@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 import os, shutil, subprocess, sys, csv
 
-# --- config: tweak if your names/paths differ
-TOP          = "dac_top_tb"  # your SV testbench top
+# config
+TOP          = "dac_top_tb"  #  SV testbench top
 SRCS         = ["dac_top_tb.sv", "dac_top.sv", "dac.sv"]
-BUILD_DIR    = "build_tb"    # use a no-spaces dir so make is happy
-CSV_NAME     = "top_dac.csv" # whatever your TB writes
+BUILD_DIR    = "build_tb"    
+CSV_NAME     = "top_dac.csv" # whatever TB writes
 VERILATOR    = shutil.which("verilator") or "/opt/homebrew/bin/verilator"
 
 def run(cmd, **kw):
