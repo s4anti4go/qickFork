@@ -49,6 +49,9 @@ module dac_top_tb();
 
     initial begin
         logic [DAC_BITS-1:0] single_channel_data;
+            $dumpfile("waves.vcd");
+            $dumpvars(0, dac_top_tb);  
+             // or (0, dut) to limit to the DUT
 
         // Initialization
         s_axis_tdata = 0;
